@@ -1,0 +1,19 @@
+				                
+body{margin-top:20px;}
+.avatar{
+width:8rem;
+height:8rem;
+}	
+.container.bootstrap.snippets.bootdey {
+    max-width: 70rem; /* İçeriğin maksimum genişliğini ayarlayın */
+    margin: 0 auto; /* İçeriği sayfanın ortasına hizalayın */
+  }
+  
+  .col-md-3 {
+    margin-right: 10px; /* Sol sütundan sağa boşluk bırakın */
+  }
+  
+  .col-md-9.personal-info {
+    margin-left: 10px; /* Sağ sütundan sola boşluk bırakın */
+  }
+  

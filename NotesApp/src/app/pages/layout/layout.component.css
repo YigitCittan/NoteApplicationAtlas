@@ -1,0 +1,19 @@
+.parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-pills {
+    margin: 0 auto; /* Yatay ortalamak için */
+    padding: 0 20rem; /* Yanlardan 50 piksel boşluk bırakmak için */
+  }
+  
+  .router-outlet {
+    margin-top: 20px; /* Router çıkışını diğer içerikten ayırmak için */
+  }
+  .nav-pills .nav-link {
+    border-radius: 20px; /* veya istediğiniz yuvarlama miktarını ayarlayın */
+  }
+  

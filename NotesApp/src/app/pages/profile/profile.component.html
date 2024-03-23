@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="container bootstrap snippets bootdey">
+    <h1 class="text-primary">Kullanıcı Profili</h1>
+      <hr>
+	<div class="row">
+      <div class="col-md-3">
+        <div class="text-center">
+          <img [src]="profileImage" class="avatar img-circle img-thumbnail" alt="avatar">
+          
+          <input type="file" class="form-control" (change)="onFileSelected($event)">
+          <button class="btn btn-danger mt-2" (click)="deleteProfilePhoto()">Profil Fotoğrafını Sil</button>
+          
+        </div>
+      </div>
+      
+      <div class="col-md-9 personal-info">
+        
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-6 input-group">
+              <input class="form-control" type="text" [value]="email" readonly>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeEmailModal">
+                  Email Değiştir
+                </button>   
+                <app-change-email-modal></app-change-email-modal>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-3 control-label">KullanıcıAdı:</label>
+            <div class="col-lg-6 input-group">
+              <input class="form-control" type="text" [value]="userName" readonly>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeUsernameModal">
+                  Kullanıcı Adı Değiştir
+                </button>   
+                <app-change-username-modal></app-change-username-modal>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Şifre:</label>
+            <div class="col-lg-6 input-group">
+              <input class="form-control" type="text" placeholder="************" readonly>
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                  Şifre Değiştir
+                </button>
+                <app-change-password-modal></app-change-password-modal>
+              </div>
+            </div>
+          </div>
+          
+        </form>
+        
+      </div>
+  </div>
+</div>
+<hr>
+<div class="form-group">
+  <div class="col-lg-6 input-group">
+    <div class="input-group-append">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">Kullanıcıyı Sil</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteUserModalLabel">Kullanıcıyı Sil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Emin misiniz?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>    
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal"(click)="deleteUser()" data-bs-target="#deleteUserModal">Kullanıcıyı Sil</button>
+
+      </div>
+    </div>
+  </div>
+</div>

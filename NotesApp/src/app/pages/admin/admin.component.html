@@ -1,0 +1,59 @@
+  <div class="parent">
+      <div class="container">
+          <h1>Kullanıcılar</h1>
+          <div class="users" id="users">
+              <div class="container">
+                  <ul>  
+                        <div>Email</div>
+                    <li *ngFor="let user of users let i= index">
+                          <div class="container">
+                            <button class="editbutton" type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openEditModal(user)">Düzenle</button>
+                            <span> {{ user.email }} -- {{ user.userName }}</span>
+                          </div>
+                      </li>
+                  </ul>
+              </div> 
+          </div>
+      </div>
+    </div> 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Kullanıcı Bilgileri</h1>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+              <div class="mb-3">
+                <label for="userId" class="form-label">ID:</label>
+                <input type="text" class="form-control" id="userId" [(ngModel)]="selectedUser.id" disabled>
+              </div>
+              <div class="mb-3">
+                <label for="userName" class="form-label">Adı:</label>
+                <input type="text" class="form-control" id="userName" [(ngModel)]="selectedUser.userName" disabled>
+              </div>
+              
+              <div class="mb-3">
+                <label for="userEmail" class="form-label">E-posta:</label>
+                <input type="email" class="form-control" id="userEmail" [(ngModel)]="selectedUser.email" disabled>
+              </div>
+              
+             
+          
+              <div [ngClass]="{'locked-out': isLockedOut, 'not-locked-out': !isLockedOut}" *ngIf="isLockedOut !== undefined">
+                Kullanıcı {{ isLockedOut ? 'kilitli' : 'kilitli değil' }}.
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button class="deletebutton" type="button"data-bs-toggle="modal" (click)="deactiveUser()" >Kilitle</button>
+              <button class="activatebutton" type="button"data-bs-toggle="modal"(click)="activateUser()">KilidiniAç</button>
+            </div>
+    
+    
+          </div>
+        </div>
+      </div>
+    

@@ -1,0 +1,63 @@
+<div class="parent">
+  <div class="container">
+      <h1>Not Defteri</h1>
+      <form id="noteForm">
+          <input type="text"  [(ngModel)]="noteDto.title" name="title" placeholder="Başlık" required="">
+          <textarea type="text" [(ngModel)]="noteDto.content" name="content" placeholder="Notunuz" rows="4" required=""></textarea>
+          <button (click)="createNote(noteDto)">Not Ekle</button>
+      </form>
+      <div class="notes" id="notes">
+          <div class="container">
+              <h2>Notlar</h2>
+              <ul>
+                
+                  <li *ngFor="let note of notes let i= index">
+                      <div class="container">
+                        <button class="editbutton" type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openEditModal(note)">Düzenle</button>
+                        <button class="deletebutton" type="button"data-bs-toggle="modal"  (click)="deleteNote(note.id)">NotuSil</button>
+                          
+                        <span > {{ note.title }} - {{ note.content }}</span>
+                      </div>
+                      
+                  </li>
+                  
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+ 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Not Düzenleme</h1>
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Başlık:</label>
+              <input type="text" [(ngModel)]="updateNoteDto.title" name="title" class="form-control" id="recipient-name" >
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Notunuz:</label>
+              <textarea type="text" [(ngModel)]="updateNoteDto.content" name="content" class="form-control" id="message-text" ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="savebutton" (click)="editNote(updateNoteDto.id,updateNoteDto)" data-bs-dismiss="modal" >Kaydet</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
